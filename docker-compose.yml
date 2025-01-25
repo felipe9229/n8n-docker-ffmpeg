@@ -11,14 +11,6 @@ services:
       - caddy_data:/data
       - ./caddy_config:/config
       - ./caddy_config/Caddyfile:/etc/caddy/Caddyfile
-      deploy:
-       resources:
-        limits:
-         cpus: '3'
-         memory: 4096M
-        reservations:
-         cpus: '2'
-         memory: 3072M
 
   n8n:
     build: .
@@ -47,14 +39,6 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - /opt/n8n/videos:/home/node/videos    # Volume para vídeos
       - /opt/n8n/audios:/home/node/audios    # Volume para áudios
-    deploy:
-     resources:
-      limits:
-       cpus: '3'
-       memory: 4096M
-      reservations:
-        cpus: '2'
-        memory: 3072M
 
 volumes:
   caddy_data:
