@@ -13,7 +13,6 @@ RUN addgroup node docker
 
 # Switch back to the default user 'node'
 USER node
-```
 
 #### `docker-compose.service`
 
