@@ -28,6 +28,8 @@ services:
       - n8n_data:/home/node/.n8n
       - ./local_files:/files
       - /var/run/docker.sock:/var/run/docker.sock
+      - /opt/n8n/videos:/home/node/videos    # Volume para vídeos
+      - /opt/n8n/audios:/home/node/audios    # Volume para áudios
 
 volumes:
   caddy_data:
