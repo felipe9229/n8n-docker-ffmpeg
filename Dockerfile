@@ -1,18 +1,17 @@
-# Use a imagem oficial do n8n como base
+# Use the official n8n image from n8n.io as the base
 FROM docker.n8n.io/n8nio/n8n
 
-# Mude para o usuário root para instalar pacotes
+# Switch to root to install packages
 USER root
 
-# Instale o Docker CLI e ffmpeg
-RUN apk update && \
-    apk add --no-cache docker-cli ffmpeg
+# Install Docker CLI and ffmpeg
+RUN apk add --no-cache docker-cli ffmpeg
 
-# Crie o grupo docker (se não existir) e adicione o usuário 'node' ao grupo
-RUN addgroup -S docker && \
-    adduser node docker
+# Create the docker group if it does not exist and add the 'node' user to it
+RUN addgroup -S docker || true
+RUN addgroup node docker
 
-# Volte para o usuário padrão 'node'
+# Switch back to the default user 'node'
 USER node
 
 #### `docker-compose.service`
