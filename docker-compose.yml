@@ -5,7 +5,7 @@ services:
     image: caddy:latest
     restart: unless-stopped
     ports:
-      - "80:80"
+      - "8080:80"    # Alterado para usar a porta 8080 no host
       - "443:443"
     volumes:
       - caddy_data:/data
