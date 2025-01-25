@@ -13,21 +13,3 @@ RUN addgroup node docker
 
 # Switch back to the default user 'node'
 USER node
-
-#### `docker-compose.service`
-
-[Unit]
-Description=Docker Compose Service
-After=network.target docker.service
-Requires=docker.service
-
-[Service]
-Type=oneshot
-User=root
-WorkingDirectory=/path/to/your/n8n-docker-ffmpeg
-ExecStart=/usr/bin/docker-compose build --no-cache
-ExecStartPost=/usr/bin/docker-compose up -d
-RemainAfterExit=true
-
-[Install]
-WantedBy=multi-user.target
