@@ -16,7 +16,6 @@ USER node
 
 #### `docker-compose.service`
 
-```ini
 [Unit]
 Description=Docker Compose Service
 After=network.target docker.service
